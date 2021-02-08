@@ -1,4 +1,4 @@
-
+PImage img; 
 PVector pos, vel;
 
 void setup () {
@@ -7,14 +7,17 @@ void setup () {
   pos = new PVector(300, 300);
   vel = PVector.random2D();
   vel.mult(4.5);
+  
+  img = loadImage("naruto.png");
 }
 
 void draw () {
-  background(0,30,40);
+  background(10,90,90);
   
   fill(0,20,30);
   noStroke();
   ellipse(pos.x, pos.y, 80, 80);
+  image(img,pos.x - img.width * 0.5, pos.y - img.height *0.5);
   
   pos.add(vel);
   if (pos.x < 0 || pos.x > width) {
